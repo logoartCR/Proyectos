@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Catálogo LogoArtCR</title>
-    <style>
-        /* Pantalla completa sin márgenes */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            width: 100%; 
-            overflow: hidden; 
-            background-color: #f4f4f4; 
-        }
-        /* El iframe ocupa todo el espacio disponible */
-        iframe { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Proyectos LogoArtCR</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f4f4f4;
+    }
+
+    #mi-catalogo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
-    <iframe src="https://script.google.com/macros/s/AKfycbwBefPYG2TQtCyNY2PmrHFpxOrEvRtviRtZAjichUzqA9HwTdm5vQ62FPmjymPf84owoA/exec"></iframe>
+  <iframe id="mi-catalogo" src=""></iframe>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const idProyecto = (urlParams.get('id') || '').trim();
+
+    let urlFinal = "https://script.google.com/macros/s/AKfycbyAwP5ldblGIftfgT0zQVBzcmnvY-JWVteh-wndlXQiBGn7iQaZLph_Y2AzdY19al4MZA/exec";
+
+    if (idProyecto) {
+      const conector = urlFinal.includes('?') ? '&' : '?';
+      urlFinal += conector + "id=" + encodeURIComponent(idProyecto);
+    }
+
+    document.getElementById('mi-catalogo').src = urlFinal;
+  </script>
 
 </body>
 </html>
