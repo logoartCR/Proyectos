@@ -32,7 +32,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const idProyecto = (urlParams.get('id') || '').trim();
 
-    let urlFinal = "https://script.google.com/macros/s/AKfycbxIspE6Un-DFt-qlbldnuobCTkLmX4Il3OpW0By1cfcnhUjEjuHYCuw2CxfwUXq_paTlg/exec";
+    let urlFinal = "https://script.google.com/macros/s/AKfycbymEKkLgAyTwK0TmcIlroo3I7tzw1orSVCYCdetUARSA7aNKWlNmWGh_kUFWSNDGt9UeQ/exec";
 
     if (idProyecto) {
       const conector = urlFinal.includes('?') ? '&' : '?';
